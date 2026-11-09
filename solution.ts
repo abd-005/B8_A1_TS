@@ -24,3 +24,11 @@ const processInput = (x : string | number | boolean): string | number | boolean 
         }
     }
 }
+
+const formatCoordinate = (tuple: readonly [number, number, string]): string => {
+    if(tuple[0]>0 && tuple[1]>0){
+       return `Location: ${tuple[2]} (${tuple[0]}, ${tuple[1]})`; 
+    }else{
+        return "Latitude & Longitude must be a positive number!"
+    }
+}
