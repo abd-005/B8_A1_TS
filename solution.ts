@@ -50,3 +50,11 @@ const getPopularCourses = (courses: Course[], minStudents: number): Course[] => 
     const result = (courses.filter((course)=> course.students >= minStudents && course.isPublished === true));
     return result;
 }
+
+
+const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
+    const result = items.map((item)=>{
+        return item[key]
+    })
+    return result
+}
