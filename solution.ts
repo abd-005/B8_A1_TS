@@ -79,3 +79,29 @@ class Manager extends Employee {
         return `Manager of ${this.department}: ${this.name}`
     }
 } 
+
+
+const validateAgeAsync = async(age: number): Promise<string | undefined> => {
+        try {
+            if(age <= 0){
+                throw new Error("Access Denied: Age must be a positive value!"); 
+            } else if(age < 18){
+                throw new Error("Access Denied: Must be 18 or older"); 
+            } 
+            
+            const result =  new Promise<string>((resolve)=>{
+    
+                setTimeout(() => { 
+                        const res = "Access Granted";
+                        resolve(res);
+                    }, 1000);
+            })
+            
+            return result;
+            
+        } catch (error) {
+            if(error instanceof Error){
+                return error.toString();
+            }
+        }
+    } 
