@@ -32,3 +32,7 @@ const formatCoordinate = (tuple: readonly [number, number, string]): string => {
         return "Latitude & Longitude must be a positive number!"
     }
 }
+
+const concatenateArrays = <T> (...arrays: T[][]): Array<T> => {
+    return arrays.flat();
+}
