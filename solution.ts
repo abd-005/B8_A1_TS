@@ -25,6 +25,7 @@ const processInput = (x : string | number | boolean): string | number | boolean 
     }
 }
 
+
 const formatCoordinate = (tuple: readonly [number, number, string]): string => {
     if(tuple[0]>0 && tuple[1]>0){
        return `Location: ${tuple[2]} (${tuple[0]}, ${tuple[1]})`; 
@@ -33,6 +34,19 @@ const formatCoordinate = (tuple: readonly [number, number, string]): string => {
     }
 }
 
+
 const concatenateArrays = <T> (...arrays: T[][]): Array<T> => {
     return arrays.flat();
+}
+
+
+interface Course {
+    title: string,
+    students: number,
+    isPublished: boolean,
+}
+
+const getPopularCourses = (courses: Course[], minStudents: number): Course[] => {
+    const result = (courses.filter((course)=> course.students >= minStudents && course.isPublished === true));
+    return result;
 }
